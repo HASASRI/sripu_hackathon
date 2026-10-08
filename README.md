@@ -28,39 +28,9 @@ Learn → Visualize → Listen → Interact → Answer → Receive Feedback → 
 
 Checkpoint quizzes provide formative assessment, helping Katha understand how well a child has understood the concept and identify areas that need additional practice.
 
-⚙️ How Katha Works
-┌─────────────────────┐
-│     User Input      │
-│ Age • Topic • Level │
-└──────────┬──────────┘
-           ↓
-┌──────────────────────────┐
-│   Local & AI Generation  │
-│ Educational Story +     │
-│ Learning Content         │
-└──────────┬───────────────┘
-           ↓
-┌──────────────────────────┐
-│    Interactive Story     │
-│ 📖 Story + 🎨 Visuals    │
-│ 🔊 Read-Aloud            │
-└──────────┬───────────────┘
-           ↓
-┌──────────────────────────┐
-│  Formative Assessment    │
-│    🧩 Checkpoint Quiz    │
-└──────────┬───────────────┘
-           ↓
-┌──────────────────────────┐
-│   Adaptive Reinforcement │
-│ Reteaching when needed   │
-└──────────┬───────────────┘
-           ↓
-┌──────────────────────────┐
-│   Learning Report        │
-│ Mastery • Misconceptions │
-│ • Learning Insights      │
-└──────────────────────────┘
+
+<img width="786" height="705" alt="Screenshot (52)" src="https://github.com/user-attachments/assets/ae3ebeca-50ad-443c-9e34-4f40178a377c" />
+
 🌟 Why Katha?
 
 Learn the concept.
