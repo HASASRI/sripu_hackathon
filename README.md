@@ -1,3 +1,88 @@
+Katha — AI-Powered Learning Through Stories 📚✨
+
+Every story adapts. Every child learns.
+
+🎯 Problem Statement
+
+Traditional learning can become repetitive and passive for children. A child may read or memorize a concept without truly understanding it. Katha addresses this challenge by transforming educational concepts into engaging, interactive stories that combine storytelling, visualization, listening, and formative assessment.
+
+👧 Target Audience
+
+Children aged 6–12
+
+💡 Core Objectives
+📖 Transform educational concepts into engaging interactive stories
+🎨 Help children visualize story scenes through chapter-wise illustrations
+🔊 Allow children to listen to stories using the Read-Aloud feature
+🧩 Check understanding through interactive checkpoint quizzes
+🔄 Provide supportive reteaching when a child struggles with a concept
+📊 Track concept mastery and misconceptions
+📝 Provide learning insights through a Learning Report
+🧠 Pedagogical Impact
+
+Katha transforms rote learning into adaptive interactive storytelling.
+
+Instead of simply reading or memorizing a concept, children:
+
+Learn → Visualize → Listen → Interact → Answer → Receive Feedback → Reinforce
+
+Checkpoint quizzes provide formative assessment, helping Katha understand how well a child has understood the concept and identify areas that need additional practice.
+
+⚙️ How Katha Works
+┌─────────────────────┐
+│     User Input      │
+│ Age • Topic • Level │
+└──────────┬──────────┘
+           ↓
+┌──────────────────────────┐
+│   Local & AI Generation  │
+│ Educational Story +     │
+│ Learning Content         │
+└──────────┬───────────────┘
+           ↓
+┌──────────────────────────┐
+│    Interactive Story     │
+│ 📖 Story + 🎨 Visuals    │
+│ 🔊 Read-Aloud            │
+└──────────┬───────────────┘
+           ↓
+┌──────────────────────────┐
+│  Formative Assessment    │
+│    🧩 Checkpoint Quiz    │
+└──────────┬───────────────┘
+           ↓
+┌──────────────────────────┐
+│   Adaptive Reinforcement │
+│ Reteaching when needed   │
+└──────────┬───────────────┘
+           ↓
+┌──────────────────────────┐
+│   Learning Report        │
+│ Mastery • Misconceptions │
+│ • Learning Insights      │
+└──────────────────────────┘
+🌟 Why Katha?
+
+Learn the concept.
+Live the story.
+Check understanding.
+Strengthen what needs practice.
+
+Katha is not just a story generator. It connects AI-powered storytelling with formative assessment to make learning more engaging, interactive, and meaningful for children.
+
+✨ Key Features
+🤖 AI-powered educational story generation
+🎨 Chapter-specific illustrations
+🔊 Voice-based read-aloud
+🧩 Interactive checkpoint quizzes
+🔄 Adaptive reteaching
+📊 Concept mastery tracking
+🧠 Misconception identification
+📝 Learning reports
+🎯 Vision
+
+Make every learning concept a story worth exploring — and make every child's learning journey more personalized.
+
 This project was built with [Lovable](https://lovable.dev).
 
 ## Build with Lovable
@@ -7,6 +92,11 @@ Continue developing this project in the [Lovable editor](https://lovable.dev/pro
 - **Ship faster**: describe what you want to build and Lovable handles the code.
 - **Stay in sync**: every change made in Lovable is committed straight to this repository.
 - **Full ownership**: this code is yours. Push to `main` on GitHub and your changes sync back into Lovable, ready for your next prompt.
+
+  ### 🧪 Automated Testing
+- 44 automated unit & integration tests passing across 8 test suites.
+- CI enabled with GitHub Actions on every commit.
+- Run locally: `npm run test`
 
 ## Development
 
