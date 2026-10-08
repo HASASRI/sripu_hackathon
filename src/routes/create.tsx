@@ -53,8 +53,9 @@ function OptionPill({
   return (
     <button
       type="button"
+      aria-pressed={selected}
       onClick={onClick}
-      className={`border-2 border-ink px-4 py-2.5 font-display text-sm font-bold transition-colors ${
+      className={`min-h-11 border-2 border-ink px-4 py-2.5 font-display text-sm font-bold transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-sky ${
         selected ? "bg-flame text-paper" : "bg-white hover:bg-ink hover:text-paper"
       }`}
     >

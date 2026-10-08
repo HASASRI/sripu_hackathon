@@ -56,19 +56,19 @@ function ReadAloud({ text, age }: { text: string; age: number }) {
   const btn =
     "border-2 border-ink px-3 py-1.5 font-display text-xs font-bold uppercase tracking-wide transition-colors hover:bg-ink hover:text-paper";
   return (
-    <div className="mt-3 flex gap-2">
+    <div className="mt-3 flex gap-2" role="group" aria-label="Narration controls">
       {state === "playing" ? (
-        <button type="button" className={btn} onClick={() => { synth.pause(); setState("paused"); }}>
-          ⏸ Pause
+        <button type="button" aria-label="Pause narration" className={btn} onClick={() => { synth.pause(); setState("paused"); }}>
+          <span aria-hidden="true">⏸</span> Pause
         </button>
       ) : (
-        <button type="button" className={`${btn} bg-sky/20`} onClick={play}>
-          🔊 {state === "paused" ? "Resume" : "Read aloud"}
+        <button type="button" aria-label={state === "paused" ? "Resume narration" : "Read this chapter aloud"} className={`${btn} bg-sky/20`} onClick={play}>
+          <span aria-hidden="true">🔊</span> {state === "paused" ? "Resume" : "Read aloud"}
         </button>
       )}
       {state !== "idle" && (
-        <button type="button" className={btn} onClick={() => { synth.cancel(); setState("idle"); }}>
-          ⏹ Stop
+        <button type="button" aria-label="Stop narration" className={btn} onClick={() => { synth.cancel(); setState("idle"); }}>
+          <span aria-hidden="true">⏹</span> Stop
         </button>
       )}
     </div>
@@ -325,8 +325,8 @@ function StoryPlayer() {
 
           {/* Checkpoint panel */}
           {checkpoint && phase !== "reading" && (
-          <div className="border-2 border-ink bg-white p-6 lg:col-span-5">
-            <p className="font-display text-lg font-extrabold uppercase">Checkpoint</p>
+          <section aria-labelledby="checkpoint-heading" className="border-2 border-ink bg-white p-6 lg:col-span-5">
+            <h2 id="checkpoint-heading" className="font-display text-lg font-extrabold uppercase">Checkpoint</h2>
             <p className="mt-1 text-sm font-medium text-ink/60">
               {checkpoint ? checkpoint.concept : "No checkpoint in this chapter"}
             </p>
@@ -334,7 +334,7 @@ function StoryPlayer() {
             {checkpoint && (phase === "checkpoint" || phase === "feedback" || phase === "reteach") && (
               <>
                 <p className="mt-4 text-sm font-bold">{checkpoint.question}</p>
-                <div className="mt-3 space-y-2">
+                <div className="mt-3 space-y-2" role="group" aria-label={`Answer choices: ${checkpoint.question}`}>
                   {checkpoint.options.map((option) => {
                     const isPicked = picked?.id === option.id;
                     const revealed = phase === "feedback";
@@ -342,22 +342,27 @@ function StoryPlayer() {
                     if (revealed && option.isCorrect) cls = "border-sky bg-sky/10 text-ink";
                     else if (isPicked && !option.isCorrect) cls = "border-flame bg-flame/10";
                     else if (isPicked) cls = "border-sky bg-sky/10";
+                    const status =
+                      revealed && option.isCorrect ? " (correct answer)" : isPicked && !option.isCorrect ? " (your answer, incorrect)" : "";
                     return (
                       <button
                         key={option.id}
+                        type="button"
                         disabled={phase !== "checkpoint"}
+                        aria-pressed={isPicked}
+                        aria-label={`${option.text}${status}`}
                         onClick={() => handleAnswer(option)}
-                        className={`w-full border-2 p-3 text-left text-sm font-semibold transition-colors disabled:cursor-default ${cls}`}
+                        className={`min-h-11 w-full border-2 p-3 text-left text-sm font-semibold transition-colors focus-visible:outline-none focus-visible:ring-4 focus-visible:ring-sky disabled:cursor-default ${cls}`}
                       >
                         {option.text}
-                        {revealed && option.isCorrect && <span className="ml-2 text-sky">✓</span>}
-                        {isPicked && !option.isCorrect && <span className="ml-2 text-flame">✗</span>}
+                        {revealed && option.isCorrect && <span aria-hidden="true" className="ml-2 text-sky">✓ Correct</span>}
+                        {isPicked && !option.isCorrect && <span aria-hidden="true" className="ml-2 text-flame">✗ Not quite</span>}
                       </button>
                     );
                   })}
                 </div>
                 {phase === "feedback" && (
-                  <p className="mt-4 border-t-2 border-dashed border-ink/15 pt-3 text-sm font-semibold text-ink/70">
+                  <p role="status" aria-live="polite" className="mt-4 border-t-2 border-dashed border-ink/15 pt-3 text-sm font-semibold text-ink/70">
                     {checkpoint.explanation}{" "}
                     <span className="font-display font-extrabold text-flame">+{XP_PER_CORRECT} XP</span>
                   </p>
@@ -365,7 +370,7 @@ function StoryPlayer() {
               </>
             )}
 
-          </div>
+          </section>
           )}
         </div>
       )}
